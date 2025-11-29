@@ -10,10 +10,21 @@ app.use(express.json());
 
 
 // INSERT_YOUR_CODE
+app.get("/scripts.js", (req, res) => {
+  const filePath = path.join(__dirname, "public", "scripts.js");
+  res.sendFile(filePath, (err) => {
+    if (err) {
+      console.error("Error sending scripts.js:", err);
+      res.status(err.statusCode || 500).end();
+    }
+  });
+});
+
+
+// INSERT_YOUR_CODE
 app.get("/hello", (req, res) => {
   res.json({ message: "Hello World" });
 });
-
 
 // Endpoint chính: nhận dữ liệu, chạy Puppeteer, trả file mp4
 app.post("/submit-form", async (req, res) => {

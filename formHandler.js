@@ -67,13 +67,12 @@ async function submitGoogleFormAndRecord(payload) {
     await page.waitForSelector(BTN1_SELECT, { timeout: 3000 });
     await page.click(BTN1_SELECT);
 
-    await new Promise((r) => setTimeout(r, 3000));
+    await new Promise((r) => setTimeout(r, 5000));
 
     const dataArr = [de1, de2, de3, khauLenh];
     if (dataArr[i]) {
       await chay(page, Number(dataArr[i]), i);
     }
-
 
     await new Promise((r) => setTimeout(r, 1500));
     // await page.waitForSelector(BTN2_SELECT, { timeout: 3000 });
