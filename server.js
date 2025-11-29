@@ -8,6 +8,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+
+// INSERT_YOUR_CODE
+app.get("/hello", (req, res) => {
+  res.json({ message: "Hello World" });
+});
+
+
 // Endpoint chính: nhận dữ liệu, chạy Puppeteer, trả file mp4
 app.post("/submit-form", async (req, res) => {
   const payload = req.body;
