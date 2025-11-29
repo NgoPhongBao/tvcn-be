@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Điền Google Form tự động</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Điền Google Form tự động">
+  <meta name="keywords" content="Google Form, tự động, điền form">
+  <meta name="author" content="Your Name">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+  <meta name="google" content="notranslate">
+  <meta name="google" content="notranslate">
+</head>
+<body>
+  <h1>Nhập thông tin</h1>
+  <form action="/submit" method="POST">
+    <input type="text" name="name" placeholder="Tên" required><br><br>
+    <button type="submit">Gửi</button>
+  </form>
+  <script>
+  document.querySelector('form').addEventListener('submit', function(e) {
+    // Tạo và hiển thị màn hình chờ
+    let overlay = document.createElement('div');
+    overlay.style.position = 'fixed';
+    overlay.style.top = 0;
+    overlay.style.left = 0;
+    overlay.style.width = '100vw';
+    overlay.style.height = '100vh';
+    overlay.style.background = 'rgba(0,0,0,0.5)';
+    overlay.style.display = 'flex';
+    overlay.style.justifyContent = 'center';
+    overlay.style.alignItems = 'center';
+    overlay.style.zIndex = 9999;
+
+    // Nội dung màn hình chờ (loading spinner hoặc chữ)
+    let spinner = document.createElement('div');
+    spinner.innerHTML = `<div style="
+      border: 8px solid #f3f3f3;
+      border-top: 8px solid #3498db;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1s linear infinite;
+    "></div>
+    <div style="color: white; font-size: 1.3em; margin-top: 20px; text-align:center">Đang gửi, vui lòng đợi...</div>`;
+    spinner.style.display = 'flex';
+    spinner.style.flexDirection = 'column';
+    spinner.style.justifyContent = 'center';
+    spinner.style.alignItems = 'center';
+    overlay.appendChild(spinner);
+
+    // CSS animation
+    let style = document.createElement('style');
+    style.innerHTML = `
+      @keyframes spin {
+        0% { transform: rotate(0deg);}
+        100% { transform: rotate(360deg);}
+      }
+    `;
+    document.head.appendChild(style);
+
+    document.body.appendChild(overlay);
+    // Không ngăn chặn submit form, màn hình chờ sẽ hiện ra và form submit sẽ tiếp tục như mặc định
+  });
+  </script>
+</body>
+</html>
