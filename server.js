@@ -9,6 +9,19 @@ app.use(cors());
 app.use(express.json());
 
 // INSERT_YOUR_CODE
+app.get("/data", (req, res) => {
+  const filePath = path.join(__dirname, "public", "data.json");
+  fs.readFile(filePath, "utf8", (err, data) => {
+    if (err) {
+      console.error("Error reading data.json:", err);
+      return res.status(500).send("Không đọc được file data.json");
+    }
+    res.type("application/json").send(data);
+  });
+});
+
+
+// INSERT_YOUR_CODE
 app.get("/scripts", (req, res) => {
   // INSERT_YOUR_CODE
   const { cauDung } = req.query;
