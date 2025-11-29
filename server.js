@@ -8,18 +8,21 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-
 // INSERT_YOUR_CODE
-app.get("/scripts.js", (req, res) => {
+app.get("/scripts", (req, res) => {
+  // INSERT_YOUR_CODE
+  const { cauDung } = req.query;
   const filePath = path.join(__dirname, "public", "scripts.js");
-  res.sendFile(filePath, (err) => {
+  fs.readFile(filePath, "utf8", (err, data) => {
     if (err) {
-      console.error("Error sending scripts.js:", err);
-      res.status(err.statusCode || 500).end();
+      console.error("Error reading scripts.js:", err);
+      return res.status(500).send("Không đọc được file scripts.js");
     }
+    res
+      .type("text/plain")
+      .send(data.replace("soCauDung", cauDung || "soCauDung"));
   });
 });
-
 
 // INSERT_YOUR_CODE
 app.get("/hello", (req, res) => {
