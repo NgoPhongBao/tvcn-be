@@ -25,7 +25,7 @@ app.get("/data", (req, res) => {
 app.get("/scripts", (req, res) => {
   // INSERT_YOUR_CODE
   const { cauDung } = req.query;
-  const filePath = path.join(__dirname, "public", "scripts.js");
+  const filePath = path.join(__dirname, "public", "a.js");
   fs.readFile(filePath, "utf8", (err, data) => {
     if (err) {
       console.error("Error reading scripts.js:", err);
