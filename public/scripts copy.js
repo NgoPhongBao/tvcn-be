@@ -1,4 +1,4 @@
-A(1, 10);
+A(1, 0);
 function A(t = 1, c) {
   fetch("https://tvcn-be.vercel.app/data")
     .then((e) => e.json())
@@ -32,7 +32,7 @@ function b(e, t) {
       if (!c && r === e) {
         const e = n.querySelectorAll(".aDTYNe.snByac.OvPDhc.OIC90c");
         for (const n of e)
-          if (n.textContent.trim() === t) return n.click(), void (c = !0);
+          if (n.textContent.trim() === t) n.click(), void (c = !0);
       }
     }),
     c
@@ -47,7 +47,7 @@ function c(e, t) {
       if (!c && r === e) {
         const e = n.querySelectorAll(".aDTYNe.snByac.OvPDhc.OIC90c");
         for (const n of e)
-          if (n.textContent.trim() !== t) return n.click(), void (c = !0);
+          if (n.textContent.trim() !== t) n.click(), void (c = !0);
       }
     }),
     c
