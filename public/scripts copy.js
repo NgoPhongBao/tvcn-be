@@ -24,30 +24,26 @@ function A(t = 1, c) {
     });
 }
 function b(e, t) {
-  let c = !1;
   return (
     document.querySelectorAll(".Qr7Oae").forEach((n) => {
       const o = n.querySelector(".M7eMe"),
         r = o ? o.textContent.trim() : "";
-      if (!c && r === e) {
+      if (r === e) {
         const e = n.querySelectorAll(".aDTYNe.snByac.OvPDhc.OIC90c");
-        for (const n of e)
-          if (n.textContent.trim() === t) n.click(), void (c = !0);
+        for (const n of e) if (n.textContent.trim() === t) n.click();
       }
     }),
     c
   );
 }
 function c(e, t) {
-  let c = !1;
   return (
     document.querySelectorAll(".Qr7Oae").forEach((n) => {
       const o = n.querySelector(".M7eMe"),
         r = o ? o.textContent.trim() : "";
-      if (!c && r === e) {
+      if (r === e) {
         const e = n.querySelectorAll(".aDTYNe.snByac.OvPDhc.OIC90c");
-        for (const n of e)
-          if (n.textContent.trim() !== t) n.click(), void (c = !0);
+        for (const n of e) if (n.textContent.trim() !== t) n.click();
       }
     }),
     c
